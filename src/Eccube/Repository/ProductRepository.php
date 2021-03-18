@@ -164,6 +164,14 @@ class ProductRepository extends AbstractRepository
             }
         }
 
+        // tag
+        if (!empty($searchData['tag_id']) && $searchData['tag_id']) {
+            $qb
+                ->innerJoin('p.ProductTag', 'pt')
+                ->andWhere('pt.Tag = :tag_id')
+                ->setParameter('tag_id', $searchData['tag_id']);
+        }
+
         // Order By
         // 価格低い順
         $config = $this->eccubeConfig;

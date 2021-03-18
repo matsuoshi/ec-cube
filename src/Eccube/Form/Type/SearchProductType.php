@@ -64,6 +64,7 @@ class SearchProductType extends AbstractType
                 'maxlength' => 50,
             ],
         ]);
+        $builder->add('tag_id', HiddenType::class, []);
         $builder->add('pageno', HiddenType::class, []);
         $builder->add('disp_number', ProductListMaxType::class, [
             'label' => false,
